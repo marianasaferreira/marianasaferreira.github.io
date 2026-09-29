@@ -20,4 +20,10 @@
 # Unused leftover assets from earlier work-in-progress (not referenced by
 # any page — the real, in-use versions live in tea-and-oat/ and labase/ etc.)
 assets/images/tea&oat/
-assets/images/infrastream/
+
+# Unlabelled scratch exports from an earlier infrastream draft — superseded by
+# the named img-01..img-11 assets that work/infrastream.html actually uses.
+assets/images/infrastream/image-*.png
+assets/images/infrastream/Frame*.png
+assets/images/infrastream/Infra*.png
+assets/images/infrastream/Landing*.png
