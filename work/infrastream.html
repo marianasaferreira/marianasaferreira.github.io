@@ -213,21 +213,10 @@
   const loopPair = document.querySelector('.project-detail__pair--loop');
   if (loopPair && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     let variant2 = false;
-    let loopTimer = null;
-    const startLoop = () => {
-      if (loopTimer) return;
-      loopTimer = setInterval(() => {
-        variant2 = !variant2;
-        loopPair.dataset.loopState = variant2 ? 'variant2' : 'default';
-      }, 2000);
-    };
-    const stopLoop = () => {
-      clearInterval(loopTimer);
-      loopTimer = null;
-    };
-    startLoop();
-    loopPair.addEventListener('mouseenter', stopLoop);
-    loopPair.addEventListener('mouseleave', startLoop);
+    setInterval(() => {
+      variant2 = !variant2;
+      loopPair.dataset.loopState = variant2 ? 'variant2' : 'default';
+    }, 2000);
   }
 </script>
 <script src="../js/lightbox.js?v=5"></script>
