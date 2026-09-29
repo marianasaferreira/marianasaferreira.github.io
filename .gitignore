@@ -5,15 +5,17 @@
 .claude/
 
 # Hero standalone reference/playground — integrated into index.html directly;
-# this is the design workshop, not a page of the site
-hero/
-hero-source/
+# this is the design workshop, not a page of the site.
+# Anchored to the repo root (leading /): unqualified "hero/" would also match
+# assets/hero/, which holds the sprite the live site actually needs.
+/hero/
+/hero-source/
 
 # Handoff package for the contact lily bloom — already integrated into
 # js/dither-filter.js, js/dither-brand.js, assets/contact/; the rest of the
 # package (workshop, reference, docs) isn't needed by the deployed site
-handoff-contact-bloom/
-HANDOFF.md
+/handoff-contact-bloom/
+/HANDOFF.md
 
 # Unused leftover assets from earlier work-in-progress (not referenced by
 # any page — the real, in-use versions live in tea-and-oat/ and labase/ etc.)
