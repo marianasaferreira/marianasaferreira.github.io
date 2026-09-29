@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@100,300;100,400;100,500;100,600&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css?v=14">
+<link rel="stylesheet" href="../css/style.css?v=15">
 </head>
 <body>
 
@@ -89,8 +89,14 @@
     </div>
 
     <div class="project-detail__pair">
-      <div class="project-detail__pair-item"><img src="../assets/images/infrastream/img-05a.png" alt="Infrastream resource state notification, error variant"></div>
-      <div class="project-detail__pair-item"><img src="../assets/images/infrastream/img-05b.png" alt="Infrastream resource state notification, warning variant"></div>
+      <button type="button" class="project-detail__pair-item project-detail__pair-item--toggle" aria-expanded="false" aria-label="Toggle the Reason for Stalling card between its basic and solvable-detail view">
+        <img class="is-collapsed" src="../assets/images/infrastream/img-05a.png" alt="Infrastream stalled-resource notification with a &quot;Go to Main Stalled Node&quot; action">
+        <img class="is-expanded" src="../assets/images/infrastream/img-05b.png" alt="Infrastream stalled-resource notification expanded with a &quot;Solve with Infrastream&quot; action">
+      </button>
+      <button type="button" class="project-detail__pair-item project-detail__pair-item--toggle" aria-expanded="false" aria-label="Toggle the Reason for Error card between its basic and solvable-detail view">
+        <img class="is-collapsed" src="../assets/images/infrastream/img-05c.png" alt="Infrastream error notification with a &quot;Go to Main Stalled Node&quot; action">
+        <img class="is-expanded" src="../assets/images/infrastream/img-05d.png" alt="Infrastream error notification expanded with a &quot;Solve with Infrastream&quot; action">
+      </button>
     </div>
 
     <div class="project-detail__note">
@@ -199,8 +205,15 @@
   document.querySelector('.js-back-to-top').addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  document.querySelectorAll('.project-detail__pair-item--toggle').forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+    });
+  });
 </script>
-<script src="../js/lightbox.js?v=4"></script>
+<script src="../js/lightbox.js?v=5"></script>
 <script src="../js/reveal.js?v=1"></script>
 </body>
 </html>

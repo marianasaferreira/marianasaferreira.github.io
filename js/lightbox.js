@@ -51,6 +51,7 @@
     if (!e.target.closest('img')) return;
     const frameSource = e.target.closest(FRAME_SELECTOR);
     if (!frameSource) return;
+    if (frameSource.classList.contains('project-detail__pair-item--toggle')) return;
     open(frameSource);
   });
 
