@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+
+# Local tooling (not needed by the deployed site)
+.claude/
+
+# Hero standalone reference/playground — integrated into index.html directly;
+# this is the design workshop, not a page of the site
+hero/
+hero-source/
+
+# Handoff package for the contact lily bloom — already integrated into
+# js/dither-filter.js, js/dither-brand.js, assets/contact/; the rest of the
+# package (workshop, reference, docs) isn't needed by the deployed site
+handoff-contact-bloom/
+HANDOFF.md
+
+# Unused leftover assets from earlier work-in-progress (not referenced by
+# any page — the real, in-use versions live in tea-and-oat/ and labase/ etc.)
+assets/images/tea&oat/
+assets/images/infrastream/

@@ -1,0 +1,568 @@
+/* ==========================================================================
+   Design tokens — verified against Figma (RutyLWlSN3UfKS1c5IpxUp)
+   ========================================================================== */
+:root {
+  --background-dark: #121212;
+  --background-light: #eaeaea;
+  --button-primary-dark: #202020;
+  --button-secondary-dark: #343434;
+  --button-primary-light: #d6d6d6;
+
+  --light-opacity-70: rgba(234, 234, 234, 0.7);
+  --light-opacity-50: rgba(234, 234, 234, 0.5);
+  --dark-opacity-70: rgba(32, 32, 32, 0.7);
+  --dark-opacity-50: rgba(32, 32, 32, 0.5);
+
+  --page-gutter: 50px;
+  --content-max: 1340px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--background-dark);
+  color: var(--background-light);
+  font-family: 'Mona Sans', system-ui, sans-serif;
+  font-variation-settings: 'wdth' 100;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+/* ==========================================================================
+   Typography — the 8 verified text styles + the one-off CTA headline
+   ========================================================================== */
+.t-header-64 { font-weight: 600; font-size: 64px; line-height: 1.2; letter-spacing: 1px; text-box-trim: trim-both; text-box-edge: cap alphabetic; }
+.t-title-44  { font-weight: 600; font-size: 44px; line-height: 1.2; letter-spacing: 0; text-box-trim: trim-both; text-box-edge: cap alphabetic; }
+.t-title-18  { font-weight: 600; font-size: 18px; line-height: 1.4; letter-spacing: 0; }
+.t-text-18   { font-weight: 400; font-size: 18px; line-height: 1.4; letter-spacing: 0; }
+.t-text-14   { font-weight: 400; font-size: 14px; line-height: 1.4; letter-spacing: 0; }
+.t-text-small-12 { font-weight: 400; font-size: 12px; line-height: 1.4; letter-spacing: 0; }
+.t-label-12  { font-weight: 400; font-size: 12px; line-height: 1.2; letter-spacing: 0; }
+.t-tag-14    { font-family: 'Geist Mono', ui-monospace, monospace; font-weight: 300; font-size: 14px; line-height: normal; letter-spacing: 0.56px; text-transform: uppercase; }
+.t-tag-10    { font-family: 'Geist Mono', ui-monospace, monospace; font-weight: 300; font-size: 10px; line-height: normal; letter-spacing: 0.4px; text-transform: uppercase; }
+/* one-off: only used by the "Let's make something bloom." CTA, not a named Figma style */
+.t-display-80 { font-weight: 600; font-size: 80px; line-height: 1.2; letter-spacing: 0.8px; }
+
+/* ==========================================================================
+   Layout shell
+   ========================================================================== */
+.page { background: var(--background-dark); }
+
+.container {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--page-gutter);
+}
+
+/* ==========================================================================
+   Nav bar
+   ========================================================================== */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 50px;
+}
+.nav__name { margin: 0; font-weight: 500; font-size: 14px; line-height: 1.4; text-decoration: none; }
+.nav__links { display: flex; gap: 20px; align-items: center; font-weight: 400; font-size: 14px; line-height: 1.4; }
+.nav__links a { text-decoration: none; white-space: nowrap; }
+.nav__links a[aria-current="page"] { font-weight: 500; }
+.nav__meta { margin: 0; font-weight: 400; font-size: 14px; line-height: 1.4; text-align: right; white-space: nowrap; }
+
+@media (max-width: 900px) {
+  .nav { padding: 24px; }
+  .nav__links { display: none; }
+}
+
+/* ==========================================================================
+   Bottom bar (place/time + scroll or back-to-top) — reused in hero + CTA
+   ========================================================================== */
+.bottom-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+}
+.bottom-bar__place {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.bottom-bar__place span:first-child { color: var(--light-opacity-50); }
+.bottom-bar__link {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--light-opacity-50);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+.bottom-bar__link img { width: 8.5px; height: 8.5px; }
+.bottom-bar__link--up img { transform: rotate(180deg); }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  overflow: hidden;
+  background: var(--background-dark);
+}
+#hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  pointer-events: none;
+  image-rendering: pixelated;
+  z-index: 0;
+}
+.hero > *:not(#hero-canvas) { position: relative; z-index: 1; }
+
+.hero__top {
+  display: flex;
+  flex-direction: column;
+  gap: 288.9px;
+  align-items: flex-start;
+  width: 100%;
+}
+.hero .nav { padding: 0; }
+
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.intro__title {
+  margin: 0;
+  width: 553px;
+  word-break: break-word;
+}
+.intro__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: center;
+  width: 275px;
+}
+.intro__tag {
+  margin: 0;
+  color: var(--button-primary-light);
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
+}
+.intro__blurb {
+  margin: 0;
+  width: 275px;
+  color: var(--light-opacity-50);
+}
+
+@media (max-width: 900px) {
+  .hero { padding: 24px; }
+  .hero__top { gap: 120px; }
+  .intro { flex-direction: column; align-items: flex-start; gap: 40px; }
+  .intro__title { width: 100%; font-size: 40px; }
+}
+
+/* ==========================================================================
+   Tags / buttons
+   ========================================================================== */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: 5px;
+  background: var(--button-primary-dark);
+  color: var(--background-light);
+}
+.tag--light { background: var(--button-primary-light); color: #121212; }
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 5px;
+  background: var(--button-primary-dark);
+  color: var(--background-light);
+  text-decoration: none;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  font-weight: 300;
+  font-size: 18px;
+  letter-spacing: 0.72px;
+  text-transform: uppercase;
+  transition: background-color 0.15s ease;
+}
+.cta-button:hover { background: var(--button-secondary-dark); }
+.cta-button img { width: 16.589px; height: 16.589px; }
+
+/* ==========================================================================
+   Selected Work
+   ========================================================================== */
+.selected-work { padding: 100px 50px 0; }
+.selected-work__heading { margin: 0 0 80px; color: #121212; background: var(--background-light); }
+
+/* the whole Selected Work section sits on the light background per Figma's
+   "projects-light" frame, while the hero above and everything below stays dark */
+.selected-work-wrap { background: var(--background-light); color: #121212; }
+
+/* Below its 1340px reference width, the whole grid (numbers + rows) is
+   scaled down as one unit via JS (see index.html) instead of letting the
+   image and text column shrink independently — this keeps every internal
+   proportion (including the tag row, which must never wrap) identical to
+   the Figma design at any size. .work-grid-scale is the fixed-height
+   viewport JS resizes; .work-grid is the fixed-width content it scales. */
+.work-grid-scale { position: relative; overflow: hidden; }
+.work-grid {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+  width: 1340px;
+  transform-origin: top left;
+}
+.work-grid__numbers {
+  width: 286px;
+  display: flex;
+  flex-direction: column;
+  gap: 524px;
+  flex-shrink: 0;
+}
+.work-grid__number { margin: 0; color: #121212; white-space: nowrap; }
+
+.work-rows {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.project-row {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+  padding: 50px 0;
+  text-decoration: none;
+}
+.project-row:first-child { padding-top: 0; }
+.project-row__image {
+  position: relative;
+  width: 666px;
+  height: 444px;
+  flex-shrink: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--button-primary-light);
+}
+.project-row__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.project-row__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+.project-row__tags { display: flex; gap: 6px; align-items: center; flex-wrap: nowrap; }
+.project-row__text { display: flex; flex-direction: column; gap: 12px; }
+.project-row__title { margin: 0; color: #121212; }
+.project-row__desc { margin: 0; color: #121212; }
+.project-row__client { color: var(--dark-opacity-70); white-space: nowrap; }
+
+.line-divider { width: 100%; height: 1px; }
+.line-divider--projects { border-top: 0.7px solid var(--dark-opacity-50); }
+
+.view-more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 0 50px;
+  text-decoration: none;
+  color: #121212;
+}
+.view-more img { width: 30px; height: 30px; }
+
+@media (max-width: 900px) {
+  .work-grid-scale { height: auto !important; }
+  .work-grid { transform: none !important; width: 100%; flex-direction: column; }
+  .work-grid__numbers { display: none; }
+  .project-row { flex-direction: column; }
+  .project-row__image { width: 100%; height: auto; aspect-ratio: 666 / 444; }
+}
+
+/* ==========================================================================
+   CTA — "Let's make something bloom."
+   ========================================================================== */
+.cta-bloom {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  background: var(--background-dark);
+  padding: 200px 50px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 254px;
+}
+#contact-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  pointer-events: none;
+  image-rendering: pixelated;
+  z-index: 0;
+}
+.cta-bloom > *:not(#contact-canvas) { position: relative; z-index: 1; }
+.cta-bloom__copy { display: flex; flex-direction: column; gap: 44px; max-width: 778px; }
+.cta-bloom__text { display: flex; flex-direction: column; gap: 12px; }
+.cta-bloom__title { margin: 0; }
+.cta-bloom__body { margin: 0; max-width: 663px; }
+.cta-bloom__actions { display: flex; gap: 12px; }
+
+@media (max-width: 900px) {
+  .cta-bloom { padding: 100px 24px 24px; gap: 100px; }
+  .t-display-80 { font-size: 48px; }
+}
+
+/* ==========================================================================
+   Work page
+   ========================================================================== */
+.work-header { padding: 80px 50px 0; display: flex; flex-direction: column; gap: 12px; }
+.work-header h1, .work-header p { margin: 0; }
+
+.work-body { display: flex; gap: 50px; padding: 80px 50px 100px; align-items: start; }
+
+.work-filters { width: 286px; flex-shrink: 0; display: flex; flex-direction: column; gap: 12px; }
+.filter-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: 5px;
+  background: var(--button-primary-dark);
+  color: var(--background-light);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  width: fit-content;
+  transition: background-color 0.15s ease;
+}
+.filter-tag:hover, .filter-tag.is-active { background: var(--button-secondary-dark); }
+
+.work-card[hidden] { display: none; }
+
+.work-grid-2col {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  row-gap: 50px;
+  min-width: 0;
+}
+
+.work-card { display: flex; flex-direction: column; gap: 36px; text-decoration: none; }
+.work-card__image { width: 100%; aspect-ratio: 490 / 565; border-radius: 18px; overflow: hidden; }
+.work-card__image img { width: 100%; height: 100%; object-fit: cover; }
+.work-card__body { display: flex; flex-direction: column; gap: 24px; }
+.work-card__text { display: flex; flex-direction: column; gap: 12px; }
+.work-card__title, .work-card__desc { margin: 0; color: var(--background-light); }
+.work-card__tags { display: flex; gap: 6px; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .work-header { padding: 80px 24px 0; }
+  .work-body { flex-direction: column; padding: 48px 24px 60px; }
+  .work-filters { width: 100%; flex-direction: row; flex-wrap: wrap; }
+  .work-grid-2col { grid-template-columns: 1fr; width: 100%; }
+}
+
+/* ==========================================================================
+   About page
+   ========================================================================== */
+.t-label-small-10 { font-weight: 400; font-size: 10px; line-height: normal; letter-spacing: 0; }
+
+.about-body { display: flex; gap: 50px; padding: 80px 50px 80px; align-items: start; }
+
+.about-info { width: 286px; flex-shrink: 0; display: flex; flex-direction: column; gap: 44px; }
+.about-info__text { display: flex; flex-direction: column; gap: 20px; }
+.about-info__text p, .about-info__text h1 { margin: 0; color: var(--background-light); }
+
+.about-info__meta { display: flex; flex-direction: column; gap: 24px; }
+.about-meta-row { display: flex; gap: 12px; align-items: start; }
+.about-meta-row__label { width: 63px; flex-shrink: 0; color: var(--light-opacity-70); }
+.about-meta-row__entries { display: flex; flex-direction: column; gap: 12px; }
+.about-meta-entry { display: flex; flex-direction: column; gap: 2px; }
+.about-meta-entry__name { color: var(--background-light); }
+.about-meta-entry__date { color: var(--light-opacity-70); }
+
+.about-photos { flex: 1; display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+.about-photos__row { display: flex; gap: 24px; }
+.about-photos__row img, .about-photos > img { border-radius: 18px; width: 100%; height: 565px; object-fit: cover; }
+.about-photos img.is-bottom { object-position: bottom; }
+.about-photos__row > div { flex: 1; min-width: 0; }
+
+@media (max-width: 900px) {
+  .about-body { flex-direction: column; padding: 48px 24px 60px; }
+  .about-info { width: 100%; }
+  .about-photos__row { flex-direction: column; }
+  .about-photos__row img, .about-photos > img { height: auto; aspect-ratio: 490 / 565; }
+}
+
+/* ==========================================================================
+   Project detail pages (case studies) — shared by every /work/<slug>.html
+   ========================================================================== */
+.project-detail__body { display: flex; gap: 50px; padding: 80px 50px 100px; align-items: start; }
+
+.project-detail__info { width: 286px; flex-shrink: 0; display: flex; flex-direction: column; gap: 44px; }
+.project-detail__title { margin: 0 0 20px; color: var(--background-light); }
+.project-detail__bio { display: flex; flex-direction: column; gap: 14px; }
+.project-detail__bio p { margin: 0; color: var(--background-light); }
+
+.project-detail__meta { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+.project-detail__meta-row { display: flex; gap: 12px; align-items: center; }
+.project-detail__meta-label { width: 56px; flex-shrink: 0; color: var(--light-opacity-70); }
+.project-detail__meta-value { color: var(--background-light); }
+
+.project-detail__gallery { flex: 1; display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+.project-detail__img { width: 100%; aspect-ratio: 1004 / 565; border-radius: 18px; overflow: hidden; background: var(--button-primary-dark); }
+.project-detail__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.project-detail__pair { display: flex; gap: 24px; }
+/* Named class (not a > div child selector) so this styling — border-radius
+   included — still applies when the lightbox clones one of these into a
+   different parent. */
+.project-detail__pair-item { flex: 1; min-width: 0; aspect-ratio: 490 / 565; border-radius: 18px; overflow: hidden; }
+.project-detail__pair-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.project-detail__note { display: flex; gap: 24px; padding: 20px 24px; }
+.project-detail__note-label { width: 200px; flex-shrink: 0; margin: 0; color: var(--background-light); }
+.project-detail__note-body { flex: 1; display: flex; flex-direction: column; gap: 24px; margin: 0; color: var(--background-light); }
+.project-detail__note-body p { margin: 0; }
+
+@media (max-width: 900px) {
+  .project-detail__body { flex-direction: column; padding: 48px 24px 60px; }
+  .project-detail__info { width: 100%; }
+  .project-detail__pair { flex-direction: column; }
+  .project-detail__note { flex-direction: column; gap: 8px; padding: 16px 0; }
+  .project-detail__note-label { width: 100%; }
+}
+
+/* ==========================================================================
+   Lightbox — click-to-zoom for project detail gallery images
+   ========================================================================== */
+.project-detail__gallery img { cursor: zoom-in; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: var(--background-dark);
+  cursor: zoom-out;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+}
+.lightbox.is-open { opacity: 1; visibility: visible; }
+
+/* .lightbox__frame is a live clone of the clicked container (image-project /
+   pair-half div), so it reproduces that exact crop, background and border
+   radius — just scaled up — instead of swapping in a different, uncropped
+   view of the raw source file. Sizing (width/height in px) is computed in
+   JS to preserve its aspect ratio within the viewport. */
+.lightbox__frame {
+  flex: none !important;
+  min-width: 0 !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transform: scale(0.96);
+  transition: transform 0.2s ease;
+  cursor: zoom-out;
+}
+.lightbox.is-open .lightbox__frame { transform: scale(1); }
+.lightbox__close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: var(--button-primary-dark);
+  color: var(--background-light);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox__close:hover { background: var(--button-secondary-dark); }
+
+@media (max-width: 900px) {
+  .lightbox { padding: 16px; }
+  .lightbox__close { top: 12px; right: 12px; }
+}
+
+/* ==========================================================================
+   Scroll reveal — fade + rise on scroll, applied via js/reveal.js
+   ========================================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ==========================================================================
+   Site footer
+   ========================================================================== */
+.site-footer { background: var(--background-dark); padding: 2px 50px 50px; }
+.site-footer__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 50px; padding-top: 50px; }
+.site-footer__heading { display: flex; flex-direction: column; gap: 24px; max-width: 613px; }
+.site-footer__heading h2, .site-footer__heading p { margin: 0; }
+.site-footer__menus { display: flex; gap: 50px; }
+.menu-list { display: flex; flex-direction: column; gap: 2px; list-style: none; margin: 0; padding: 0; }
+.menu-list a { text-decoration: none; }
+.menu-list a.is-current { color: var(--button-primary-light); }
+.menu-list a:not(.is-current) { color: var(--light-opacity-50); }
+.site-footer__copyright { color: var(--light-opacity-50); margin: 44px 0 0; text-align: right; }
+
+@media (max-width: 900px) {
+  .site-footer__top { flex-direction: column; gap: 32px; }
+  .site-footer__menus { gap: 32px; }
+}
