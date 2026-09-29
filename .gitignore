@@ -27,3 +27,7 @@ assets/images/infrastream/image-*.png
 assets/images/infrastream/Frame*.png
 assets/images/infrastream/Infra*.png
 assets/images/infrastream/Landing*.png
+
+# Same for an earlier aco draft — superseded by the named img-01..img-07
+# assets that work/aco.html actually uses.
+assets/images/aco/image-*.png
