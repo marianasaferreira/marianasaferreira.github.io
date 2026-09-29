@@ -88,15 +88,15 @@
       <p class="project-detail__note-body t-text-18">Infrastructure issues often require users to understand not only that something went wrong, but why. I worked on the UI and interaction states for stalled and failed resources, progressively revealing more information as users investigate an issue.</p>
     </div>
 
-    <div class="project-detail__pair">
-      <button type="button" class="project-detail__pair-item project-detail__pair-item--toggle" aria-expanded="false" aria-label="Toggle the Reason for Stalling card between its basic and solvable-detail view">
-        <img class="is-collapsed" src="../assets/images/infrastream/img-05a.png" alt="Infrastream stalled-resource notification with a &quot;Go to Main Stalled Node&quot; action">
-        <img class="is-expanded" src="../assets/images/infrastream/img-05b.png" alt="Infrastream stalled-resource notification expanded with a &quot;Solve with Infrastream&quot; action">
-      </button>
-      <button type="button" class="project-detail__pair-item project-detail__pair-item--toggle" aria-expanded="false" aria-label="Toggle the Reason for Error card between its basic and solvable-detail view">
-        <img class="is-collapsed" src="../assets/images/infrastream/img-05c.png" alt="Infrastream error notification with a &quot;Go to Main Stalled Node&quot; action">
-        <img class="is-expanded" src="../assets/images/infrastream/img-05d.png" alt="Infrastream error notification expanded with a &quot;Solve with Infrastream&quot; action">
-      </button>
+    <div class="project-detail__pair project-detail__pair--loop" data-loop-state="default">
+      <div class="project-detail__pair-item project-detail__pair-item--loop">
+        <img class="is-default" src="../assets/images/infrastream/img-05a.png" alt="Infrastream resource notification cycling between a stalling and an error state">
+        <img class="is-variant2" src="../assets/images/infrastream/img-05c.png" alt="" aria-hidden="true">
+      </div>
+      <div class="project-detail__pair-item project-detail__pair-item--loop">
+        <img class="is-default" src="../assets/images/infrastream/img-05b.png" alt="Infrastream resource notification, expanded, cycling between a stalling and an error state">
+        <img class="is-variant2" src="../assets/images/infrastream/img-05d.png" alt="" aria-hidden="true">
+      </div>
     </div>
 
     <div class="project-detail__note">
@@ -206,12 +206,17 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  document.querySelectorAll('.project-detail__pair-item--toggle').forEach((toggle) => {
-    toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!expanded));
-    });
-  });
+  // Reproduces the Figma prototype interaction on Frame 2147225957: After
+  // delay 1000ms -> Change to Variant2 (Smart animate, 600ms), mirrored back
+  // to Default -> a self-looping crossfade, not a user-triggered toggle.
+  const loopPair = document.querySelector('.project-detail__pair--loop');
+  if (loopPair && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let variant2 = false;
+    setInterval(() => {
+      variant2 = !variant2;
+      loopPair.dataset.loopState = variant2 ? 'variant2' : 'default';
+    }, 1600);
+  }
 </script>
 <script src="../js/lightbox.js?v=5"></script>
 <script src="../js/reveal.js?v=1"></script>
