@@ -207,15 +207,16 @@
   });
 
   // Reproduces the Figma prototype interaction on Frame 2147225957: After
-  // delay 1000ms -> Change to Variant2 (Smart animate, 600ms), mirrored back
-  // to Default -> a self-looping crossfade, not a user-triggered toggle.
+  // delay -> Change to Variant2 (Smart animate, 600ms), mirrored back to
+  // Default -> a self-looping crossfade, not a user-triggered toggle. Hold
+  // time bumped from the prototype's 1000ms to 1400ms so it reads less busy.
   const loopPair = document.querySelector('.project-detail__pair--loop');
   if (loopPair && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     let variant2 = false;
     setInterval(() => {
       variant2 = !variant2;
       loopPair.dataset.loopState = variant2 ? 'variant2' : 'default';
-    }, 1600);
+    }, 2000);
   }
 </script>
 <script src="../js/lightbox.js?v=5"></script>
