@@ -77,7 +77,7 @@ a { color: inherit; }
 
 @media (max-width: 900px) {
   .nav { padding: 24px; }
-  .nav__links { display: none; }
+  .nav__meta { display: none; }
 }
 
 /* ==========================================================================
