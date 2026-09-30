@@ -226,11 +226,11 @@ a { color: inherit; }
    Selected Work
    ========================================================================== */
 .selected-work { padding: 100px 50px 0; }
-.selected-work__heading { margin: 0 0 80px; color: var(--background-light); }
+.selected-work__heading { margin: 0 0 80px; color: #121212; background: var(--background-light); }
 
-/* Selected Work now sits on the dark background per Figma's updated
-   "projects-light" frame (name unchanged, content re-themed dark) */
-.selected-work-wrap { background: var(--background-dark); color: var(--background-light); }
+/* the whole Selected Work section sits on the light background per Figma's
+   "projects-light" frame, while the hero above and everything below stays dark */
+.selected-work-wrap { background: var(--background-light); color: #121212; }
 
 /* Below its 1340px reference width, the whole grid (numbers + rows) is
    scaled down as one unit via JS (see index.html) instead of letting the
@@ -253,7 +253,7 @@ a { color: inherit; }
   gap: 524px;
   flex-shrink: 0;
 }
-.work-grid__number { margin: 0; color: var(--background-light); white-space: nowrap; }
+.work-grid__number { margin: 0; color: #121212; white-space: nowrap; }
 
 .work-rows {
   flex: 1;
@@ -277,7 +277,7 @@ a { color: inherit; }
   flex-shrink: 0;
   border-radius: 18px;
   overflow: hidden;
-  background: var(--button-primary-dark);
+  background: var(--button-primary-light);
 }
 .project-row__image img {
   position: absolute;
@@ -295,12 +295,12 @@ a { color: inherit; }
 }
 .project-row__tags { display: flex; gap: 6px; align-items: center; flex-wrap: nowrap; }
 .project-row__text { display: flex; flex-direction: column; gap: 12px; }
-.project-row__title { margin: 0; color: var(--background-light); }
-.project-row__desc { margin: 0; color: var(--background-light); }
-.project-row__client { color: var(--light-opacity-70); white-space: nowrap; }
+.project-row__title { margin: 0; color: #121212; }
+.project-row__desc { margin: 0; color: #121212; }
+.project-row__client { color: var(--dark-opacity-70); white-space: nowrap; }
 
 .line-divider { width: 100%; height: 1px; }
-.line-divider--projects { border-top: 0.7px solid var(--light-opacity-50); }
+.line-divider--projects { border-top: 0.7px solid var(--dark-opacity-50); }
 
 .view-more {
   display: flex;
@@ -308,7 +308,7 @@ a { color: inherit; }
   justify-content: space-between;
   padding: 50px 0 50px;
   text-decoration: none;
-  color: var(--background-light);
+  color: #121212;
 }
 .view-more img { width: 30px; height: 30px; }
 
