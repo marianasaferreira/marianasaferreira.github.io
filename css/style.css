@@ -180,7 +180,7 @@ a { color: inherit; }
 .intro__blurb {
   margin: 0;
   width: 275px;
-  color: var(--light-opacity-50);
+  color: var(--light-opacity-70);
 }
 
 @media (max-width: 900px) {
