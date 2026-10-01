@@ -457,7 +457,7 @@ a { color: inherit; }
 
 .project-detail__gallery { flex: 1; display: flex; flex-direction: column; gap: 24px; min-width: 0; }
 .project-detail__img { width: 100%; aspect-ratio: 1004 / 565; border-radius: 18px; overflow: hidden; background: var(--button-primary-dark); }
-.project-detail__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.project-detail__img img, .project-detail__img video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .project-detail__pair { display: flex; gap: 24px; }
 /* Named class (not a > div child selector) so this styling — border-radius
    included — still applies when the lightbox clones one of these into a

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@100,300;100,400;100,500;100,600&family=Geist+Mono:wght@300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css?v=22">
+<link rel="stylesheet" href="../css/style.css?v=23">
 </head>
 <body>
 
@@ -89,6 +89,10 @@
     </div>
 
     <div class="project-detail__img">
+      <video id="acoAnimation" src="../assets/videos/aco-animation.mp4" poster="../assets/videos/aco-animation-poster.jpg" muted loop playsinline preload="metadata" aria-label="aco brand animation"></video>
+    </div>
+
+    <div class="project-detail__img">
       <img src="../assets/images/aco/img-07.png" alt="aco closing brand shot, four interior and exterior photos">
     </div>
 
@@ -147,6 +151,18 @@
   document.querySelector('.js-back-to-top').addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // The aco animation only starts once the visitor scrolls to it, then loops
+  // on its own (native `loop` attribute) — not an autoplaying background video.
+  const acoAnimation = document.getElementById('acoAnimation');
+  if (acoAnimation) {
+    const acoObserver = new IntersectionObserver((entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      acoObserver.disconnect();
+      acoAnimation.play();
+    }, { threshold: 0.5 });
+    acoObserver.observe(acoAnimation);
+  }
 </script>
 <script src="../js/lightbox.js?v=5"></script>
 <script src="../js/reveal.js?v=1"></script>
