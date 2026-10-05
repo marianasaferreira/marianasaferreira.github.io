@@ -327,12 +327,13 @@ a { color: inherit; }
 .cta-bloom {
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 750px;
   background: var(--background-dark);
-  padding: 200px 50px 50px;
+  padding: 150px 50px 50px;
   display: flex;
   flex-direction: column;
-  gap: 254px;
+  justify-content: space-between;
+  gap: 100px;
 }
 #contact-canvas {
   position: absolute;
