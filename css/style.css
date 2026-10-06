@@ -13,7 +13,7 @@
   --dark-opacity-70: rgba(32, 32, 32, 0.7);
   --dark-opacity-50: rgba(32, 32, 32, 0.5);
 
-  --page-gutter: 50px;
+  --page-gutter: 40px;
   --content-max: 1340px;
 }
 
@@ -66,7 +66,7 @@ a { color: inherit; }
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 40px 50px 50px;
+  padding: 40px;
 }
 .nav__name { margin: 0; font-weight: 500; font-size: 14px; line-height: 1.4; text-decoration: none; }
 .nav__links { display: flex; gap: 12px; align-items: center; font-weight: 400; font-size: 14px; line-height: 1.4; }
@@ -124,7 +124,7 @@ a { color: inherit; }
   position: relative;
   width: 100%;
   min-height: 100vh;
-  padding: 40px 50px 50px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -226,7 +226,7 @@ a { color: inherit; }
 /* ==========================================================================
    Selected Work
    ========================================================================== */
-.selected-work { padding: 100px 50px 0; }
+.selected-work { padding: 100px 40px 0; }
 .selected-work__heading { margin: 0 0 80px; color: #121212; background: var(--background-light); }
 
 /* the whole Selected Work section sits on the light background per Figma's
@@ -244,7 +244,7 @@ a { color: inherit; }
   display: flex;
   gap: 50px;
   align-items: flex-start;
-  width: 1340px;
+  width: 1360px;
   transform-origin: top left;
 }
 .work-grid__numbers {
@@ -329,7 +329,7 @@ a { color: inherit; }
   overflow: hidden;
   min-height: 750px;
   background: var(--background-dark);
-  padding: 150px 50px 50px;
+  padding: 150px 40px 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -359,7 +359,7 @@ a { color: inherit; }
 /* ==========================================================================
    Work page
    ========================================================================== */
-.work-body { display: flex; gap: 50px; padding: 80px 50px 100px; align-items: start; }
+.work-body { display: flex; gap: 50px; padding: 80px 40px 100px; align-items: start; }
 
 .work-info { width: 286px; flex-shrink: 0; display: flex; flex-direction: column; gap: 44px; }
 .work-info__text { display: flex; flex-direction: column; gap: 20px; }
@@ -413,7 +413,7 @@ a { color: inherit; }
    ========================================================================== */
 .t-label-small-10 { font-weight: 400; font-size: 10px; line-height: normal; letter-spacing: 0; }
 
-.about-body { display: flex; gap: 50px; padding: 80px 50px 80px; align-items: start; }
+.about-body { display: flex; gap: 50px; padding: 80px 40px 80px; align-items: start; }
 
 .about-info { width: 286px; flex-shrink: 0; display: flex; flex-direction: column; gap: 44px; }
 .about-info__text { display: flex; flex-direction: column; gap: 20px; }
@@ -443,7 +443,7 @@ a { color: inherit; }
 /* ==========================================================================
    Project detail pages (case studies) — shared by every /work/<slug>.html
    ========================================================================== */
-.project-detail__body { display: flex; gap: 50px; padding: 80px 50px 100px; align-items: start; }
+.project-detail__body { display: flex; gap: 50px; padding: 80px 40px 100px; align-items: start; }
 
 .project-detail__info { width: 286px; flex-shrink: 0; display: flex; flex-direction: column; gap: 44px; }
 .project-detail__title { margin: 0 0 20px; color: var(--background-light); }
@@ -570,8 +570,8 @@ a { color: inherit; }
 /* ==========================================================================
    Site footer
    ========================================================================== */
-.site-footer { background: var(--background-dark); padding: 2px 50px 50px; }
-.site-footer__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 50px; padding-top: 50px; }
+.site-footer { background: var(--background-dark); padding: 2px 40px 40px; }
+.site-footer__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 50px; padding-top: 40px; }
 .site-footer__heading { display: flex; flex-direction: column; gap: 24px; max-width: 613px; }
 .site-footer__heading h2, .site-footer__heading p { margin: 0; }
 .site-footer__menus { display: flex; gap: 50px; }
