@@ -329,7 +329,7 @@ a { color: inherit; }
   overflow: hidden;
   min-height: 750px;
   background: var(--background-dark);
-  padding: 150px 40px 40px;
+  padding: 150px 40px 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
