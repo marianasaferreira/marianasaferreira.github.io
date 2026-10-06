@@ -173,7 +173,7 @@ a { color: inherit; }
 }
 .intro__tag {
   margin: 0;
-  color: var(--button-primary-light);
+  color: var(--background-light);
   text-box-trim: trim-both;
   text-box-edge: cap alphabetic;
 }
