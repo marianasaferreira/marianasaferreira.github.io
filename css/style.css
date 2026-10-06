@@ -66,7 +66,7 @@ a { color: inherit; }
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 40px;
+  padding: 20px 40px 40px;
 }
 .nav__name { margin: 0; font-weight: 500; font-size: 14px; line-height: 1.4; text-decoration: none; }
 .nav__links { display: flex; gap: 12px; align-items: center; font-weight: 400; font-size: 14px; line-height: 1.4; }
@@ -124,7 +124,7 @@ a { color: inherit; }
   position: relative;
   width: 100%;
   min-height: 100vh;
-  padding: 40px;
+  padding: 20px 40px 40px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -570,7 +570,7 @@ a { color: inherit; }
 /* ==========================================================================
    Site footer
    ========================================================================== */
-.site-footer { background: var(--background-dark); padding: 2px 40px 40px; }
+.site-footer { background: var(--background-dark); padding: 2px 40px 20px; }
 .site-footer__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 50px; padding-top: 40px; }
 .site-footer__heading { display: flex; flex-direction: column; gap: 24px; max-width: 613px; }
 .site-footer__heading h2, .site-footer__heading p { margin: 0; }
