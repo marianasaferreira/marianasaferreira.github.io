@@ -212,7 +212,7 @@ a { color: inherit; }
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 18px;
+  padding: 12px 16px;
   border-radius: 8px;
   background: var(--button-primary-dark);
   color: var(--background-light);
@@ -373,7 +373,7 @@ a { color: inherit; }
 .work-filters { display: flex; flex-direction: column; gap: 12px; }
 .filter-tag {
   display: inline-block;
-  padding: 12px 18px;
+  padding: 12px 16px;
   border-radius: 8px;
   background: var(--button-primary-dark);
   color: var(--background-light);
