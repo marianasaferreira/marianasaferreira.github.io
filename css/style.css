@@ -197,34 +197,36 @@ a { color: inherit; }
    Tags / buttons
    ========================================================================== */
 .tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 12px;
-  border-radius: 5px;
+  display: inline-block;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 6px;
   background: var(--button-primary-dark);
   color: var(--background-light);
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
 }
 .tag--light { background: var(--button-primary-light); color: #121212; }
 
 .cta-button {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
-  border-radius: 5px;
+  gap: 12px;
+  padding: 12px 18px;
+  border-radius: 8px;
   background: var(--button-primary-dark);
   color: var(--background-light);
   text-decoration: none;
   font-family: 'Geist Mono', ui-monospace, monospace;
   font-weight: 300;
-  font-size: 18px;
-  letter-spacing: 0.72px;
+  font-size: 14px;
+  letter-spacing: 0.56px;
   text-transform: uppercase;
   transition: background-color 0.15s ease;
 }
 .cta-button:hover { background: var(--button-secondary-dark); }
-.cta-button img { width: 16.589px; height: 16.589px; }
+.cta-button__label { display: block; text-box-trim: trim-both; text-box-edge: cap alphabetic; }
+.cta-button img { width: 10px; height: 10px; }
 
 /* ==========================================================================
    Selected Work
@@ -370,16 +372,16 @@ a { color: inherit; }
 
 .work-filters { display: flex; flex-direction: column; gap: 12px; }
 .filter-tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 12px;
-  border-radius: 5px;
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 8px;
   background: var(--button-primary-dark);
   color: var(--background-light);
   border: none;
   cursor: pointer;
-  text-align: left;
+  text-align: center;
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
   width: fit-content;
   transition: background-color 0.15s ease;
 }
