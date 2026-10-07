@@ -256,7 +256,7 @@ a { color: inherit; }
   width: 286px;
   display: flex;
   flex-direction: column;
-  gap: 524px;
+  gap: 520px;
   flex-shrink: 0;
 }
 .work-grid__number { margin: 0; color: #121212; white-space: nowrap; }
@@ -272,7 +272,7 @@ a { color: inherit; }
   display: flex;
   gap: 50px;
   align-items: flex-start;
-  padding: 50px 0;
+  padding: 48px 0;
   text-decoration: none;
 }
 .project-row:first-child { padding-top: 0; }
