@@ -579,6 +579,7 @@ a { color: inherit; }
 .site-footer__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 50px; padding-top: 40px; }
 .site-footer__heading { display: flex; flex-direction: column; gap: 24px; max-width: 613px; }
 .site-footer__heading h2, .site-footer__heading p { margin: 0; }
+.site-footer__heading p { color: var(--light-opacity-50); }
 .site-footer__menus { display: flex; gap: 50px; }
 .menu-list { display: flex; flex-direction: column; gap: 2px; list-style: none; margin: 0; padding: 0; }
 .menu-list a { text-decoration: none; transition: color 0.15s ease; }
