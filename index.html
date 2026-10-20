@@ -269,7 +269,7 @@
   window.addEventListener('load', updateWorkGridScale);
 </script>
 
-<script src="js/dither-filter.js?v=13"></script>
+<script src="js/dither-filter.js?v=14"></script>
 <script src="js/dither-brand.js?v=1"></script>
 <script>
   DitherFilter.mount(Object.assign({}, DITHER_BRAND, {
@@ -295,8 +295,9 @@
     duration: 9000,
     loop: false,
     autoplay: false,
-    // lower right, stem running off the bottom edge, clear of the text
-    placement: { x: 0.74, y: 1, anchorY: 1, size: 0.8 },
+    // lower right, stem running off the bottom edge (lifted and extended by 20% of the
+    // frame height so the bloom sits a little higher), clear of the text
+    placement: { x: 0.74, y: 1, anchorY: 1, size: 0.8, stemExtend: 0.2 },
     // the lily's depth: the two petals standing behind thinned, the stem firmed up
     shape: (u, v) => {
       const V = v - 0.08;

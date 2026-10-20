@@ -29,7 +29,10 @@
     fadeIn: 500,           // ms, so the first frame arrives rather than pops
     // anchorY picks which point of the media sits at y: 0 top edge, 0.5 centre,
     // 1 bottom edge — so { y: 1, anchorY: 1 } rests it on the bottom at any size
-    placement: { x: 0.5, y: 0.5, size: 1.0, designWidth: 0, anchorY: 0.5 },
+    // stemExtend lifts the frame by that fraction of its height and fills the gap
+    // underneath with the frame's own bottom rows, so a subject that runs off the
+    // bottom edge (a stem) grows taller instead of floating above the edge
+    placement: { x: 0.5, y: 0.5, size: 1.0, designWidth: 0, anchorY: 0.5, stemExtend: 0 },
     shape: null,           // (u, v) => ({ gain, hollow }) in flower space
     edgeRef: 34,           // gradient counted as a full edge when hollowing
     cursor: {
@@ -187,7 +190,8 @@
     const centreOf = () => {
       const dh = scaleOf() * aspect();
       const ay = o.placement.anchorY === undefined ? 0.5 : o.placement.anchorY;
-      return { x: W * o.placement.x, y: H * o.placement.y + (0.5 - ay) * dh };
+      const lift = (o.placement.stemExtend || 0) * dh;
+      return { x: W * o.placement.x, y: H * o.placement.y + (0.5 - ay) * dh - lift };
     };
 
     // ---------- setup ----------
@@ -396,8 +400,15 @@
       a.globalAlpha = 1;
     }
 
+    const STEM_ROWS = 6;             // source rows stretched down to extend the stem
     function blit(c, idx, gc, fw, fh, x, y, w, h) {
-      c.drawImage(media, (idx % gc) * fw, Math.floor(idx / gc) * fh, fw, fh, x, y, w, h);
+      const sx = (idx % gc) * fw, sy = Math.floor(idx / gc) * fh;
+      c.drawImage(media, sx, sy, fw, fh, x, y, w, h);
+      const ext = (o.placement.stemExtend || 0) * h;
+      if (ext > 0) {
+        // start one px up so the join never shows a hairline seam
+        c.drawImage(media, sx, sy + fh - STEM_ROWS, fw, STEM_ROWS, x, y + h - 1, w, ext + 1);
+      }
     }
 
     // ---------- cursor smear ----------
