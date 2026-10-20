@@ -224,7 +224,7 @@ a { color: inherit; }
   text-transform: uppercase;
   transition: background-color 0.15s ease;
 }
-.cta-button:hover { background: #9b3688; }
+.cta-button:hover { background: var(--button-secondary-dark); }
 .cta-button__label { display: block; text-box-trim: trim-both; text-box-edge: cap alphabetic; }
 .cta-button img { width: 10px; height: 10px; }
 
@@ -385,8 +385,7 @@ a { color: inherit; }
   width: fit-content;
   transition: background-color 0.15s ease;
 }
-.filter-tag.is-active { background: var(--button-secondary-dark); }
-.filter-tag:hover { background: #9b3688; }
+.filter-tag:hover, .filter-tag.is-active { background: var(--button-secondary-dark); }
 
 .work-card[hidden] { display: none; }
 
