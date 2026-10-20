@@ -278,7 +278,10 @@
     sprite: { frames: 85, cols: 10, rows: 9 },
     duration: 5316,
     loop: false,
-    placement: { x: 0.63, y: 1, anchorY: 1, size: 1.18 }
+    placement: { x: 0.63, y: 1, anchorY: 1, size: 1.18 },
+    // the butterfly sits low, so the field behind it starts a little denser at the
+    // top and thins toward the bottom to even out the overall balance
+    background: Object.assign({}, DITHER_BRAND.background, { from: 0.012, to: 0.008 })
   }));
 
   // The contact section is near the bottom of the page: the lily must wait for the
