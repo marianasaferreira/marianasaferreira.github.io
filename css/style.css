@@ -407,7 +407,7 @@ a { color: inherit; }
 .work-card__tags { display: flex; gap: 4px; flex-wrap: wrap; }
 
 @media (max-width: 900px) {
-  .work-body { flex-direction: column; padding: 48px 24px 60px; }
+  .work-body { flex-direction: column; padding: 24px 24px 60px; }
   .work-info { width: 100%; }
   .work-filters { flex-direction: row; flex-wrap: wrap; }
   .work-grid-2col { grid-template-columns: 1fr; width: 100%; }
@@ -439,7 +439,7 @@ a { color: inherit; }
 .about-photos__row > div { flex: 1; min-width: 0; }
 
 @media (max-width: 900px) {
-  .about-body { flex-direction: column; padding: 48px 24px 60px; }
+  .about-body { flex-direction: column; padding: 24px 24px 60px; }
   .about-info { width: 100%; }
   .about-photos__row { flex-direction: column; }
   .about-photos__row img, .about-photos > img { height: auto; aspect-ratio: 490 / 565; }
@@ -492,7 +492,7 @@ a { color: inherit; }
 .project-detail__note-body p { margin: 0; }
 
 @media (max-width: 900px) {
-  .project-detail__body { flex-direction: column; padding: 48px 24px 60px; }
+  .project-detail__body { flex-direction: column; padding: 24px 24px 60px; }
   .project-detail__info { width: 100%; }
   .project-detail__pair { flex-direction: column; }
   .project-detail__note { flex-direction: column; gap: 8px; padding: 16px 0; }
